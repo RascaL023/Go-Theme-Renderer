@@ -1,0 +1,167 @@
+{
+  "theme": {
+    "type": "dark",
+
+    "palette": {
+      "base": {
+        "bg": "#120d1a",
+        "fg": "#e0d6f7"
+      },
+
+      "surface": {
+        "base": "#120d1a",
+        "raised": "#1a1226",
+        "hover": "#221933",
+        "active": "#33294d"
+      },
+
+      "overlay": {
+        "subtle": "#6e5f99",
+        "default": "#8575ad",
+        "strong": "#9c8cc2"
+      },
+
+      "accent": {
+        "primary": "#c299ff",
+        "secondary": "#b380ff",
+        "tertiary": "#8c66ff"
+      },
+
+      "status": {
+        "success": "#aa88ff",
+        "warning": "#cc99ff",
+        "error": "#b366ff",
+        "info": "#9570ff"
+      },
+
+      "text": {
+        "primary": "#e0d6f7",
+        "secondary": "#cbbde6",
+        "muted": "#b3a3d6",
+        "disabled": "#8575ad"
+      },
+
+      "border": {
+        "default": "#6e5f99",
+        "focus": "#c299ff",
+        "urgent": "#b366ff"
+      },
+
+      "interaction": {
+        "hoverBg": "alpha(#c299ff, 0.15)",
+        "hoverFg": "#b380ff",
+        "outline": "alpha(#b380ff, 0.5)"
+      }
+    }
+  },
+
+  "domain": {
+    "terminal": {
+      "foreground": "#d8cab8",
+      "background": "#000000",
+
+      "cursor": "#AC82E9",
+      "opacity": 0.7,
+
+      "selection": {
+        "foreground": "#141216",
+        "background": "#b86fd4"
+      },
+
+      "palette": {
+        "normal": [
+          "#2b2135",
+          "#fc4649",
+          "#c4e881",
+          "#AC82E9",
+          "#7b91fc",
+          "#f3fc7b",
+          "#8F56E1",
+          "#fc92fc" 
+        ],
+        "bright": [
+          "#92fcfa",
+          "#fc4649",
+          "#c4e881",
+          "#AC82E9",
+          "#7b91fc",
+          "#f3fc7b",
+          "#8F56E1",
+          "#d8cab8" 
+        ]
+      }
+    }
+  },
+
+  "tools": {
+    "cava": {
+      "gradientColor": [
+        "#4B0082",
+        "#8A2BE2",
+        "#BA55D3",
+        "#DA70D6",
+        "#D8BFD9"
+      ]
+    },
+
+    "hyprland": {
+      "hyprlock": {
+        "primaryFont": "Maple Mono NF",
+        "accent": "#ca1fdaff",
+        "accentAlpha": "#390b3bff"
+      },
+
+      "general": {
+        "gapsIn": 1,
+        "gapsOut": 5,
+
+        "border": {
+          "size": 2,
+          "active": {
+            "colors": [
+              "rgba(8f00ffee)",
+              "rgba(33ccffee)"
+            ],
+            "angle": "45deg"
+          },
+          "inactive": "rgba(0,0,0,0.7)" 
+        }
+      },
+
+      "decoration": {
+        "blur": {
+          "enabled": true,
+          "size": 4,
+          "passes": 3
+        },
+
+        "shadow": {
+          "enabled": false,
+          "range": 6,
+          "renderPower": 1,
+          "color": "rgba(0,255,255,0.4)"
+        }
+      },
+
+      "windowrule": {
+        "foot": {
+          "opacity": 0.8
+        }
+      }
+    },
+
+    "wlogout": {
+      "window": {
+        "background": "rgba(10, 10, 24, 0.8)"  
+      },
+
+      "button": {
+        "background": "rgba(0, 0, 0, 0.6)",
+        "focus": {
+          "background": "#BB86FC",
+          "border": "#BB86FC" 
+        }
+      }
+    }
+  }
+}
