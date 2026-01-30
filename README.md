@@ -15,8 +15,8 @@ Render JSON-based theme definition into multiple tools configuration using SSOT 
 - 
 
 ### Planned Tools:
-- Kitty
 - Foot
+- Kitty
 - Cava
 - Wlogout
 - Waybar
@@ -29,4 +29,4 @@ Render JSON-based theme definition into multiple tools configuration using SSOT 
 - SSOT color
 
 #### Pending        : Render terminal domain, Logger and notification
-#### Last Progress  : Resolved from raw theme
+#### Last Progress  : Resolved terminal domain

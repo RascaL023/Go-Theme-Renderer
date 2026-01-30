@@ -2,17 +2,17 @@ package main
 
 import (
 	"fmt"
+	"gtr/internal/core/context"
 	"gtr/internal/core/themes/state"
 	"gtr/internal/core/themes/theme"
 	"gtr/internal/loader"
+	"gtr/internal/register"
 	"os"
 	"path/filepath"
-
-	_ "gtr/internal/core/domain/terminal"
 )
 
 func main() {
-	// ================================ FIX ================================
+	// ================================ SOURCE INPUT ================================
 	// Get the state of theme
 	assetsMap := os.ExpandEnv("$MYENV/map");
 	state, err := loader.LoadJSON[state.State](assetsMap + "/.state.json");
@@ -21,27 +21,47 @@ func main() {
 	}
 	fmt.Println("[Go] Using state", state.Version);
 
-
 	// Get the input - output path of each tools
-	tools, err := loader.LoadToolMap(assetsMap + "/path.txt", state);
-	if err != nil {
-		panic("Error on parsing map path!");
-	}
-	// ================================ FIX ================================
-	
-	fmt.Println(tools);
+	// tools, err := loader.LoadToolMap(assetsMap + "/path.txt", state);
+	// if err != nil {
+	// 	panic("Error on parsing map path!");
+	// }
 
+	// Load the json theme config
 	raws, err := loader.LoadJSON[theme.RawTheme](
 		filepath.Join("themes", state.Theme.Name, "theme.json"),
 	);
 	if err != nil {
-		panic("Error on loading theme config");
+		panic("Error on loading json theme");
+	}
+	// ================================ SOURCE INPUT ================================
+	ctx := context.Context{
+		Theme:   &raws.Theme,
+		Domains: make(map[string]any),
 	}
 
-	resolvedTheme, err := theme.Parse(raws.Theme);
-	if err != nil {
-		panic("Error on parsing theme");
-	}
-	fmt.Println(resolvedTheme);
 
+	// ================================ DOMAIN PROCESSOR ================================
+	for processorName, raw := range raws.Domain {
+		processor, ok := register.GetDomainProcessor(processorName);
+		if !ok {
+			fmt.Println("Unknown processor", processorName);
+			continue;
+		}
+
+		parsed, err := processor.Parse(raw);
+		if err != nil {
+			panic("Error on parsing Domain raw");
+		}
+
+		resolved, err := processor.Resolve(parsed, &ctx);
+		if err != nil {
+			panic("Error on resolving domain");
+		}
+
+		ctx.Domains[processorName] = resolved;
+	}
+	// ================================ DOMAIN PROCESSOR ================================
+
+	fmt.Println(ctx.Domains["terminal"]);
 }

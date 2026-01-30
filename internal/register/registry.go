@@ -10,7 +10,7 @@ type Parser interface {
 }
 
 type Resolver interface {
-	Resolve(any, context.Context) (any, error)
+	Resolve(any, *context.Context) (any, error)
 }
 
 type Renderer interface {

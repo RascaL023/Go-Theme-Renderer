@@ -37,6 +37,7 @@
       "text": {
         "primary": "#e0d6f7",
         "secondary": "#cbbde6",
+        "teritary": "#d8cab8",
         "muted": "#b3a3d6",
         "disabled": "#8575ad"
       },
@@ -57,7 +58,7 @@
 
   "domain": {
     "terminal": {
-      "foreground": "#d8cab8",
+      "foreground": "$theme.palette.text.teritary",
       "background": "#000000",
 
       "cursor": "#AC82E9",

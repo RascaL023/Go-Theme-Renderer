@@ -1,16 +1,17 @@
 package theme
 
-type ResolvedTheme struct {
-	Type    ThemeType
-	Palette Palette
-}
-
 type ThemeType string
 
 const (
 	Dark  ThemeType = "dark"
 	Light ThemeType = "light"
 )
+
+type ResolvedTheme struct {
+	Type    ThemeType
+	Palette Palette
+}
+
 
 
 type Palette struct {
@@ -58,6 +59,7 @@ type StatusPalette struct {
 type TextPalette struct {
 	Primary   string
 	Secondary string
+	Teritary string
 	Muted     string
 	Disabled  string
 }
