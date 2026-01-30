@@ -12,10 +12,9 @@ Render JSON-based theme definition into multiple tools configuration using SSOT 
 - Minimal runtime dependency
 
 ### Supported Tools:
-- 
+- Foot
 
 ### Planned Tools:
-- Foot
 - Kitty
 - Cava
 - Wlogout
@@ -28,5 +27,5 @@ Render JSON-based theme definition into multiple tools configuration using SSOT 
 - Documentation & examples
 - SSOT color
 
-#### Pending        : Render terminal domain, Logger and notification
-#### Last Progress  : Resolved terminal domain
+#### Pending        : Logger and notification
+#### Last Progress  : Adding foot

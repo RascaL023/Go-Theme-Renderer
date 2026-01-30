@@ -22,10 +22,10 @@ func main() {
 	fmt.Println("[Go] Using state", state.Version);
 
 	// Get the input - output path of each tools
-	// tools, err := loader.LoadToolMap(assetsMap + "/path.txt", state);
-	// if err != nil {
-	// 	panic("Error on parsing map path!");
-	// }
+	tools, err := loader.LoadToolMap(assetsMap + "/path.txt", state);
+	if err != nil {
+		panic("Error on parsing map path!");
+	}
 
 	// Load the json theme config
 	raws, err := loader.LoadJSON[theme.RawTheme](
@@ -63,5 +63,34 @@ func main() {
 	}
 	// ================================ DOMAIN PROCESSOR ================================
 
-	fmt.Println(ctx.Domains["terminal"]);
+
+	// ================================ TOOLS PROCESSOR ================================
+	for toolName, toolPath := range tools {
+		processor, ok := register.GetToolProcessor(toolName);
+		if !ok {
+			fmt.Println("Unknown tool", toolName);
+			continue;
+		}
+
+		var parsed any = nil;
+		raw, hasConfig := raws.Tools[toolName];
+		if hasConfig {
+			parsed, err = processor.Parse(raw);
+			if err != nil {
+				panic(err);
+			}
+		}
+
+		resolved, err := processor.Resolve(parsed, &ctx);
+		if err != nil {
+			panic(err)
+		}
+
+		err = processor.Render(toolPath.TemplatePath, toolPath.OutputPath, resolved);
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println("Success rendering", toolName);
+	}
+	// ================================ TOOLS PROCESSOR ================================
 }

@@ -13,7 +13,7 @@ func RegisterToolProcessor(t ToolProcessor) {
     RegisteredTool[t.Name()] = t;
 }
 
-func GetToolProcessorProcessor(name string) (ToolProcessor, bool) {
+func GetToolProcessor(name string) (ToolProcessor, bool) {
     p, ok := RegisteredTool[name];
     return p, ok;
 }
