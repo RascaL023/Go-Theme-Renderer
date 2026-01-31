@@ -1,15 +1,23 @@
 package terminal
 
-func Resolve(raw TerminalInput) (*Terminal, error) {
+import (
+	"gtr/internal/core/context"
+	"gtr/internal/resolver"
+)
+
+func Resolve(raw TerminalInput, ctx *context.Context) (*Terminal, error) {
     return &Terminal{
-        Foreground: raw.Foreground,
-        Background: raw.Background,
-				SelectionFg: raw.Selection.Foreground,
-				SelectionBg: raw.Selection.Background,
-        Cursor:     raw.Cursor,
+        Foreground: resolver.ResolveVar(raw.Foreground, ctx),
+        Background: resolver.ResolveVar(raw.Background, ctx),
+
+				SelectionFg: resolver.ResolveVar(raw.Selection.Foreground, ctx),
+				SelectionBg: resolver.ResolveVar(raw.Selection.Background, ctx),
+
+        Cursor:     resolver.ResolveVar(raw.Cursor, ctx),
         Opacity:    raw.Opacity,
-        Regular:    raw.Palette.Normal,
-        Bright:     raw.Palette.Bright,
+
+        Regular:    resolver.ResolveVars(raw.Palette.Normal, ctx),
+        Bright:     resolver.ResolveVars(raw.Palette.Bright, ctx),
     }, nil;
 }
 

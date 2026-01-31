@@ -58,7 +58,7 @@
 
   "domain": {
     "terminal": {
-      "foreground": "$theme.palette.text.teritary",
+      "foreground": "$th.palette.text.teritary",
       "background": "#000000",
 
       "cursor": "#AC82E9",

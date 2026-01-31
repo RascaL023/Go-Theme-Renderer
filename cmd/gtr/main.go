@@ -35,6 +35,7 @@ func main() {
 		panic("Error on loading json theme");
 	}
 	// ================================ SOURCE INPUT ================================
+	theme.BuildResolvedTheme(&raws.Theme);
 	ctx := context.Context{
 		Theme:   &raws.Theme,
 		Domains: make(map[string]any),

@@ -10,6 +10,8 @@ const (
 type ResolvedTheme struct {
 	Type    ThemeType
 	Palette Palette
+
+	Flat map[string]string
 }
 
 

@@ -28,4 +28,4 @@ Render JSON-based theme definition into multiple tools configuration using SSOT 
 - SSOT color
 
 #### Pending        : Logger and notification
-#### Last Progress  : Adding cava
+#### Last Progress  : Adding cava, adding reference resolver
