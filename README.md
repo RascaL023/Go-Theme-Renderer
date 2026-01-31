@@ -13,10 +13,10 @@ Render JSON-based theme definition into multiple tools configuration using SSOT 
 
 ### Supported Tools:
 - Foot
+- Cava
 
 ### Planned Tools:
 - Kitty
-- Cava
 - Wlogout
 - Waybar
 
@@ -28,4 +28,4 @@ Render JSON-based theme definition into multiple tools configuration using SSOT 
 - SSOT color
 
 #### Pending        : Logger and notification
-#### Last Progress  : Adding foot
+#### Last Progress  : Adding cava
